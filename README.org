@@ -1,0 +1,75 @@
+* Numerical experiments: Mixed finite elements for Bingham flow in a pipe
+
+This repository contains the source code for reproducing the numerical
+experiments from the article "Mixed finite elements for Bingham flow in a pipe"
+by Tom Gustafsson and Philip L. Lederer.
+
+** General information
+
+| Code written by | Tom Gustafsson                                       |
+| University      | Aalto University                                     |
+| Department      | Department of Mathematics and Systems Analysis       |
+| Date            | 23.5.2022                                            |
+| Funding         | The Academy of Finland (Decisions 324611 and 338341) |
+
+** File overview
+
+*** apriori.py
+
+This script runs the circle example.
+It is possible to change the refinement level by modifying the definition
+of the variable /m/ on line 16.
+It is possible to change the method by modifying the case index
+on line 48 (0 = MINI, 1 = P2P0, 2 = P1P0 (unstable), 3 = P3P1).
+This script is run several times and it writes
+to file /apriori_circle_<method name>.csv/.
+The file is read by /apriori_plots.py/ to draw the convergence plots.
+
+| License              | The MIT License   |
+| Programming language | Python 3.7.7      |
+| Dependency           | scikit-fem==6.0.0 |
+| Dependency           | scipy==1.5.2      |
+| Dependency           | numpy==1.19.1     |
+| Dependency           | matplotlib==3.3.1 |
+
+*** apriori_plots.py
+
+Draws the convergence plots after /apriori.py/ has been run successfully.
+
+| License              | The MIT License   |
+| Programming language | Python 3.7.7      |
+| Dependency           | numpy==1.19.1     |
+| Dependency           | matplotlib==3.3.1 |
+
+*** aposteriori.py
+
+This script runs the circle example adaptively.
+Uniform vs. adaptive refinement can be changed on line 16.
+The method can be changed on line 75.
+
+| License              | The MIT License   |
+| Programming language | Python 3.7.7      |
+| Dependency           | scikit-fem==6.0.0 |
+| Dependency           | scipy==1.5.2      |
+| Dependency           | numpy==1.19.1     |
+| Dependency           | matplotlib==3.3.1 |
+
+*** aposteriori_plots.py
+
+Draws the convergence plots after /aposteriori.py/ has been run successfully.
+
+| License              | The MIT License   |
+| Programming language | Python 3.7.7      |
+| Dependency           | numpy==1.19.1     |
+| Dependency           | matplotlib==3.3.1 |
+
+*** aposteriori_more.py
+
+This script runs the additional adaptive example on a square domain.
+
+| License              | The MIT License   |
+| Programming language | Python 3.7.7      |
+| Dependency           | scikit-fem==6.0.0 |
+| Dependency           | scipy==1.5.2      |
+| Dependency           | numpy==1.19.1     |
+| Dependency           | matplotlib==3.3.1 |
